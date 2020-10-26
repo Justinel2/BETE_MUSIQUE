@@ -3,6 +3,8 @@
 // - What's up with the live music - always schedule or?
 // - Colors - faux bas with true white and black
 
+//https://justinel2.github.io/BETE_MUSIQUE/index.html
+
 
 let $button;
 let $subscribeImage;
@@ -74,10 +76,12 @@ function displayMetadata(m){
     }
   }
   else {
-    let text = "Off Air ~ Next: "  + m.shows.next[0].name + " (" + m.shows.next[0].starts.slice(11,16)
-                + " - " + m.shows.next[0].ends.slice(11,16) + ")";
-    console.log("noshow");
-    $metadataSpaceFirst.text(text);
+    if (m.shows.next.length != 0) {
+      let text = "Off Air ~ Next: "  + m.shows.next[0].name + " (" + m.shows.next[0].starts.slice(11,16)
+                  + " - " + m.shows.next[0].ends.slice(11,16) + ")";
+      console.log("noshow");
+      $metadataSpaceFirst.text(text);
+    }
   }
 }
 
