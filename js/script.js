@@ -2,6 +2,7 @@
 // - Subsribe as frame in div instead of losing music
 // - What's up with the live music - always schedule or?
 // - Colors - faux bas with true white and black
+//
 
 //https://justinel2.github.io/BETE_MUSIQUE/index.html
 
