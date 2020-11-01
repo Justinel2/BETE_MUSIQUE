@@ -1,13 +1,12 @@
-
-// - Subsribe as frame in div instead of losing music
-// - What's up with the live music - always schedule or?
-// - Colors - faux bas with true white and black
-//
-
+// BETE MUSIQUE WEBSITE
+// Developed by Justine Lardeux for BETE MUSIQUE
+// Design by BETE MUSIQUE
+// Alternative Domain:
 //https://justinel2.github.io/BETE_MUSIQUE/index.html
 
 
 let $button;
+let $subscribeButton;
 let $subscribeImage;
 let $metadataSpace;
 let $audio;
@@ -21,17 +20,18 @@ $(document).ready(setup);
 
 function setup() {
   $button = $('#player-control');
-  $subscribeImage = $('#subscription');
   $metadataSpaceFirst = $('.banner-text');
+  $subscribeButton = $('#subscribe-button');
 
   $audio = $('#audio');
 
   updateMetadata();
   animateBanner($metadataSpaceFirst);
   $button.on('click',handlePlayer);
+  $subscribeButton.on('click',openSubscribe);
 
   setInterval(updateMetadata, 20000);
-  setInterval(manageBannerIterations, 6000);
+  setInterval(manageBannerIterations, 16000);
 }
 
 function handlePlayer() {
@@ -47,6 +47,18 @@ function handlePlayer() {
   }
 }
 
+function openSubscribe() {
+  // let xhr = new XMLHttpRequest();
+  //   xhr.onreadystatechange = function() {
+  //     if (this.readyState === 4 && this.status === 200) {
+  //       let content = this.responseText;
+  //       $('#about').html(content);
+  //     }
+  //   }
+  //   xhr.open("GET", "https://cors-anywhere.herokuapp.com/https://mailchi.mp/2dc7aa6f91ea/betemusique/");
+  //   xhr.send();
+}
+
 function updateMetadata() {
   $.ajax({
   url: "https://betemusique.airtime.pro/api/live-info-v2",
@@ -58,7 +70,7 @@ function updateMetadata() {
     if ( console && console.log ) {
       let metadatas = JSON.parse(data);
       displayMetadata(metadatas);
-      console.log(metadatas);
+      // console.log(metadatas);
     }
   });
 }
@@ -80,15 +92,13 @@ function displayMetadata(m){
     if (m.shows.next.length != 0) {
       let text = "Off Air ~ Next: "  + m.shows.next[0].name + " (" + m.shows.next[0].starts.slice(11,16)
                   + " - " + m.shows.next[0].ends.slice(11,16) + ")";
-      console.log("noshow");
       $metadataSpaceFirst.text(text);
     }
   }
 }
 
 function animateBanner(e){
-    $(e).animate({marginLeft: '-70vw'}, 12000, "linear");
-    console.log("go");
+    $(e).animate({marginLeft: '-100vw'}, 30000, "linear");
 }
 
 function manageBannerIterations() {
