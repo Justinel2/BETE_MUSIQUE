@@ -36,12 +36,12 @@ function setup() {
 
 function handlePlayer() {
   if (on) {
-    $(this).children('img').attr('src', 'icons/pause-bsn.gif');
+    $(this).children('img').attr('src', 'icons/pause-bsn.png');
     on = false;
     $audio.get(0).play();
   }
   else {
-    $(this).children('img').attr('src', 'icons/play-bsn.gif');
+    $(this).children('img').attr('src', 'icons/play-bsn.png');
     on = true;
     $audio.get(0).pause();
   }
