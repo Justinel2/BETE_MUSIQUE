@@ -98,7 +98,12 @@ function displayMetadata(m){
 }
 
 function animateBanner(e){
+  if ($(window).width() < 500) {
+    $(e).animate({marginLeft: '-200vw'}, 22000, "linear");
+  }
+  else {
     $(e).animate({marginLeft: '-100vw'}, 30000, "linear");
+  }
 }
 
 function manageBannerIterations() {
