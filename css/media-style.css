@@ -38,7 +38,7 @@ html, body {
 #player-control {
   display: inline-block;
   z-index: 1000;
-  padding-left: 3vw;
+  margin-left: 6vw;
 }
 
 #player-control img {
