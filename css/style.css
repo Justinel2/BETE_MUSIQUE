@@ -101,3 +101,7 @@ html, body {
   padding-left: 2vw;
   margin-top: 20vh;
 }
+
+#audio{
+  margin-left: -100px;
+}

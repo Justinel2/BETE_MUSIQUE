@@ -11,6 +11,7 @@ let $subscribeImage;
 let $metadataSpace;
 let $audio;
 let newSpace;
+let animationMargin;
 
 
 let on = true;
@@ -22,6 +23,7 @@ function setup() {
   $button = $('#player-control');
   $metadataSpaceFirst = $('.banner-text');
   $subscribeButton = $('#subscribe-button');
+  animationMargin = $('#audio').css("margin-left");
 
   $audio = $('#audio');
 
@@ -98,7 +100,7 @@ function displayMetadata(m){
 }
 
 function animateBanner(e){
-  if ($(window).width() < 500) {
+  if (animationMargin === "-200px") {
     $(e).animate({marginLeft: '-200vw'}, 22000, "linear");
   }
   else {

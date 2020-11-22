@@ -53,7 +53,7 @@ html, body {
   /* background-color: red; */
   margin-top: -2vw;
   margin-left: 3%;
-  height: 80px;
+  height: 100px;
   color: #FFFAFB;
   position: absolute;
   width: 85vw;
@@ -101,4 +101,8 @@ html, body {
   color: #D1D1D1;
   font-size: 2em;
   padding-left: 2vw;
+}
+
+#audio{
+  margin-left: -200px;
 }
