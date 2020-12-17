@@ -12,7 +12,8 @@ let $metadataSpace;
 let $audio;
 let newSpace;
 let animationMargin;
-
+let text;
+// let iterationNumber;
 
 let on = true;
 let bannerCounter = 0;
@@ -33,7 +34,7 @@ function setup() {
   $subscribeButton.on('click',openSubscribe);
 
   setInterval(updateMetadata, 20000);
-  setInterval(manageBannerIterations, 16000);
+  setInterval(manageBannerIterations, 22000);
 }
 
 function handlePlayer() {
@@ -78,33 +79,40 @@ function updateMetadata() {
 }
 
 function displayMetadata(m){
+  let text;
   if (m.shows.current) {
     if (m.shows.next.length != 0) {
-      let text = "Live: " + m.shows.current.name + " (" + m.shows.current.starts.slice(11,16)
+      text = "Live: " + m.shows.current.name + " (" + m.shows.current.starts.slice(11,16)
                 + " - " + m.shows.current.ends.slice(11,16) + ") ~ Next: "  + m.shows.next[0].name;
       $metadataSpaceFirst.text(text);
     }
     else {
-      let text = "Live: " + m.shows.current.name + " (" + m.shows.current.starts.slice(11,16)
+      text = "Live: " + m.shows.current.name + " (" + m.shows.current.starts.slice(11,16)
                   + " - " + m.shows.current.ends.slice(11,16) + ")";
       $metadataSpaceFirst.text(text);
     }
   }
   else {
     if (m.shows.next.length != 0) {
-      let text = "Off Air ~ Next: "  + m.shows.next[0].name + " (" + m.shows.next[0].starts.slice(11,16)
+      text = "Off Air ~ Next: "  + m.shows.next[0].name + " (" + m.shows.next[0].starts.slice(11,16)
                   + " - " + m.shows.next[0].ends.slice(11,16) + ")";
       $metadataSpaceFirst.text(text);
     }
   }
+  // metadataLength = text.length;
+  // iterationNumber = metadataLength/100;
+  // console.log(metadataLength);
+  // console.log(iterationNumber);
 }
 
 function animateBanner(e){
+  let margin;
   if (animationMargin === "-200px") {
-    $(e).animate({marginLeft: '-200vw'}, 22000, "linear");
+    margin = -200*iterationNumber;
+    $(e).animate({marginLeft: '-400vw'}, 32000, "linear");
   }
   else {
-    $(e).animate({marginLeft: '-100vw'}, 30000, "linear");
+    $(e).animate({marginLeft: '-150vw'}, 32000, "linear");
   }
 }
 
@@ -117,4 +125,14 @@ function manageBannerIterations() {
     $(".player-info").find("span:first-of-type").remove();
   }
   animateBanner(newSpace);
+  // setTimeout(function(){
+  //   newSpace = $metadataSpaceFirst.clone();
+  //   newSpace.css("marginLeft","100vw");
+  //   newSpace.appendTo( ".player-info");
+  //   bannerCounter++
+  //   if (bannerCounter >= 2) {
+  //     $(".player-info").find("span:first-of-type").remove();
+  //   }
+  //   animateBanner(newSpace);
+  // }, 1000);
 }
