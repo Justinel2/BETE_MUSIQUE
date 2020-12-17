@@ -106,9 +106,7 @@ function displayMetadata(m){
 }
 
 function animateBanner(e){
-  let margin;
   if (animationMargin === "-200px") {
-    margin = -200*iterationNumber;
     $(e).animate({marginLeft: '-400vw'}, 32000, "linear");
   }
   else {
