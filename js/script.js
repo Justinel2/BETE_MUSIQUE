@@ -33,7 +33,7 @@ function setup() {
   $button.on('click',handlePlayer);
   $subscribeButton.on('click',openSubscribe);
 
-  setInterval(updateMetadata, 20000);
+  setInterval(updateMetadata, 22000);
   setInterval(manageBannerIterations, 22000);
 }
 
