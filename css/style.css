@@ -61,14 +61,16 @@ html, body {
 }
 
 #player-info-container p {
+  position: absolute;
   width: 85vw;
   white-space: nowrap;
 }
 
 #first{
-  margin-left: 40vw;
-  position:absolute;
+  left: 0;
+  position: absolute;
   z-index: 10;
+  padding-left: 50%;
 }
 
 #about {

@@ -34,7 +34,7 @@ function setup() {
   $subscribeButton.on('click',openSubscribe);
 
   setInterval(updateMetadata, 22000);
-  setInterval(manageBannerIterations, 20000);
+  setInterval(manageBannerIterations, 22000);
 }
 
 function handlePlayer() {
@@ -79,7 +79,7 @@ function updateMetadata() {
 }
 
 function displayMetadata(m){
-  text;
+  let text;
   if (m.shows.current) {
     if (m.shows.next.length != 0) {
       text = "Live: " + m.shows.current.name + " (" + m.shows.current.starts.slice(11,16)
@@ -99,33 +99,38 @@ function displayMetadata(m){
       $metadataSpaceFirst.text(text);
     }
   }
+  // metadataLength = text.length;
+  // iterationNumber = metadataLength/100;
+  // console.log(metadataLength);
+  // console.log(iterationNumber);
 }
 
 function animateBanner(e){
   if (animationMargin === "-200px") {
-    $(e).animate({left: '-800vw'}, 64000, "linear");
+    $(e).animate({marginLeft: '-400vw'}, 32000, "linear");
   }
   else {
-    $(e).animate({left: '-200vw'}, 32000, "linear");
+    $(e).animate({marginLeft: '-150vw'}, 32000, "linear");
   }
 }
 
 function manageBannerIterations() {
-
-  //Get position of the last letter
-  // var lastChar = text[text.length -1];
-  // console.log(lastChar.offset.left);
-
-  let rightMargin = $metadataSpaceFirst.css("left");
-  console.log(rightMargin);
-
   newSpace = $metadataSpaceFirst.clone();
-  newSpace.css("left","50%");
+  newSpace.css("marginLeft","100vw");
   newSpace.appendTo( ".player-info");
   bannerCounter++
   if (bannerCounter >= 2) {
     $(".player-info").find("span:first-of-type").remove();
   }
   animateBanner(newSpace);
-
+  // setTimeout(function(){
+  //   newSpace = $metadataSpaceFirst.clone();
+  //   newSpace.css("marginLeft","100vw");
+  //   newSpace.appendTo( ".player-info");
+  //   bannerCounter++
+  //   if (bannerCounter >= 2) {
+  //     $(".player-info").find("span:first-of-type").remove();
+  //   }
+  //   animateBanner(newSpace);
+  // }, 1000);
 }
